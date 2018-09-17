@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import ComponentA from "./component/componentA"
-import ComponentB from "./component/componentB"
 import ImageList from "./component/imageList"
-import { Fragment } from 'react'
 
 import {
     BrowserRouter as Router,
@@ -18,9 +15,7 @@ class App extends Component {
         return (
             <div>
                 <Header />
-                    <Route exact path="/ww" component={ComponentA} />
                     <Route  exact path="/" component={ImageList} />
-                    <Route exact path="/dashboard/photos/favorites" component={ComponentB} />
             </div>
         )
     }
