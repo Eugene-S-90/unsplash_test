@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ImageList from "./component/imageList"
+import FavoritesImg from "./component/favoritesImgs"
 
 import {
     BrowserRouter as Router,
@@ -16,6 +17,8 @@ class App extends Component {
             <div>
                 <Header />
                     <Route  exact path="/" component={ImageList} />
+                    <Route  exact path="/dashboard/photos/favorites" component={FavoritesImg} />
+                   
             </div>
         )
     }
