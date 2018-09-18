@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import { getListImg } from '../actions/getListImg'
+import Img from './Img';
+import NoImgs from './NoImgs';
 import axios from 'axios';
 import { access_key, secret_key } from '../config/config'
+import './ImageList.less'
+
 
 class ImgList extends Component {
     constructor(props) {
@@ -16,21 +20,27 @@ class ImgList extends Component {
         const { getListImg } = this.props
         console.log("DidMount")
         getListImg()
-        // fetch('https://api.unsplash.com/search/photos/?query=skull&per_page=20&client_id=' + access_key)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         this.setState({ imgs: data.results });
-        //     })
-        //     .catch(err => {
-        //         console.log('Error happened during fetching!', err);
-        //     });
     }
     render() {
-
+        console.log('myyy', this.props.imgFromApuCall.imgList)
+        let imgs;
+        if (this.props.imgFromApuCall.imgList.length >= 0) {
+            imgs = this.props.imgFromApuCall.imgList.map(img =>
+                <Img
+                    url={img.urls.small}
+                    user={img.user.links.html}
+                    name={img.user.name}
+                    link={img.links.html}
+                    key={img.id}
+                />
+            );
+        } else {
+            imgs = <NoImgs />;
+        }
         return (
             <div>
                 <ul className="img-list">
-                   "t"
+                    {imgs}
                 </ul>
             </div>
 
@@ -38,9 +48,15 @@ class ImgList extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        imgFromApuCall: state.getListImg,
+    };
+};
+
 const mapDispatchToProps = (dispatch) => bindActionCreators({
     getListImg
 
 }, dispatch)
 
-export default connect(null, mapDispatchToProps)(ImgList);
+export default connect(mapStateToProps, mapDispatchToProps)(ImgList);
