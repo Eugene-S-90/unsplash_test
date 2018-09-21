@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux';
 import getListImg from './getListImg';
+import addTofav from './reducer_addTofav';
+import drawFavoritesImg from './reducer_drawFavoritesImg';
 
 const rootReducer = combineReducers({
-    getListImg
+    getListImg,
+    addTofav,
+    drawFavoritesImg,
 })
 export default rootReducer;

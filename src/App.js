@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import ImageList from "./component/imageList"
-import FavoritesImg from "./component/favoritesImgs"
+import ImageList from "./component/imageList/imageList"
+import FavoritesImg from "./component/favoritesImgs/favoritesImgs"
+import GreatingPage from "./component/greeting-page/GreatingPage"
 
 import {
     BrowserRouter as Router,
@@ -16,9 +17,9 @@ class App extends Component {
         return (
             <div>
                 <Header />
-                    <Route  exact path="/" component={ImageList} />
+                    <Route  exact path="/" component={GreatingPage} />
+                    <Route  exact path="/dashboard/photos" component={ImageList} />
                     <Route  exact path="/dashboard/photos/favorites" component={FavoritesImg} />
-                   
             </div>
         )
     }

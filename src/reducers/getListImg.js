@@ -5,8 +5,8 @@ const initialState = {
 }
 
 const getListImg = (state = initialState, action) => {
-  console.log('img upload reducer', action);
   const { type, payload } = action;
+  console.log("action.payload",action.payload)
   switch (action.type) {
     case "GET_LIST_IMG_BEGIN":
       return {...state };

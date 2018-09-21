@@ -1,28 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
-import { getListImg } from '../actions/getListImg'
-import axios from 'axios';
-import { access_key, secret_key } from '../config/config'
+import { getListImg } from '../../actions/action_getListImg'
+import { addTofav } from '../../actions/action_addToFav'
 import './ImageList.less'
 
 
 class ImgList extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            imgs: []
-        };
     }
+
     componentDidMount() {
         const { getListImg } = this.props
-        console.log("DidMount")
-        getListImg()
-        // setInterval(getListImg,3000)
-        
+        getListImg(30)
     }
+
     render() {
-        console.log('myyy', this.props.imgFromApuCall.imgList)
         let imgs;
         if (this.props.imgFromApuCall.imgList.length >= 0) {
             imgs = this.props.imgFromApuCall.imgList.map(img =>
@@ -31,9 +25,11 @@ class ImgList extends Component {
                         <img className="grid__img" src={img.urls.small} alt="Unsplash Image here" />
                     </a>
                     <p>
-                        Photo by
-                    <a href={img.user.name}>{img.user.name}</a>
-                        <a href={img.links.html}> See on Unsplash</a>
+                        <input onClick={this.props.addTofav} type="checkbox" data-url={img.urls.small} data-link={img.links.html} id={img.id} />
+                        <label htmlFor={img.id}>Add to favorites</label>
+                    </p>
+                    <p>
+                        <a href={img.links.html}>See on Unsplash</a>
                     </p>
                 </li>
             );
@@ -60,7 +56,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-    getListImg
+    getListImg,
+    addTofav
 
 }, dispatch)
 
