@@ -2,14 +2,21 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import { drawFavoritesImg } from '../../actions/action_drawFavoritesImg'
+import { deleteAllFavsImg } from '../../actions/action_deleteAllFavs'
 import '../imageList/ImageList.less'
+import './favorites.less'
 
 
 class FavoritesImgs extends Component {
     constructor(props) {
         super(props);
+        this.deleteAndUpdate = this.deleteAndUpdate.bind(this);
     }
     componentDidMount() {
+        this.props.drawFavoritesImg()
+    }
+    deleteAndUpdate(){
+        this.props.deleteAllFavsImg()
         this.props.drawFavoritesImg()
     }
     render() {
@@ -33,6 +40,7 @@ class FavoritesImgs extends Component {
         
         return (
             <div>
+                <div className="delete-wrapper"><a className="delete__btn" onClick={this.deleteAndUpdate}>CLEAR ALL FAVORITES</a></div>
             <ul  className="img-list">
                 {imgs}
             </ul>
@@ -49,7 +57,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({
-    drawFavoritesImg
+    drawFavoritesImg,
+    deleteAllFavsImg
+
 
 }, dispatch)
 
