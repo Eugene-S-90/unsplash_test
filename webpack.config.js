@@ -14,7 +14,10 @@ module.exports = {
     publicPath: '/'
   },
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    inline: true,
+    contentBase: './build',
+    port: 5000
   },
   module: {
     rules: [

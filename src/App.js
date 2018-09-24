@@ -9,7 +9,6 @@ import {
 import Header from "./layouts/header/Header"
 
 class App extends Component {
-
     render() {
         console.log("lol")
         return (
