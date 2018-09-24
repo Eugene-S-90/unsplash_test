@@ -12,19 +12,16 @@ class GreatingPage extends Component {
     constructor(props) {
         super(props);
     }
-
     componentDidMount() {
         const { getListImg } = this.props
         getListImg(1)
     }
-
     render() {
         const { randomImgGreetingPage } = this.props
-        console.log(randomImgGreetingPage)
         let imgFromGetListImg = randomImgGreetingPage.imgList[0];
         let imgs;
-        if (typeof(imgFromGetListImg) != "undefined"){
-                imgs = 
+        if (typeof (imgFromGetListImg) != "undefined") {
+            imgs =
                 <li className="greeting-grid-wrapper" key={imgFromGetListImg.id}>
                     <a href={imgFromGetListImg.links.html}>
                         <img className="greeting-grid__img" src={imgFromGetListImg.urls.regular} alt="Unsplash Image here" />
@@ -37,10 +34,9 @@ class GreatingPage extends Component {
                         <a href={imgFromGetListImg.links.html}>See on Unsplash</a>
                     </p>
                 </li>
-        
-    } else {
-        imgs ="Loading..."
-    }
+        } else {
+            imgs = "Loading..."
+        }
         return (
             <div>
                 <div className="greeting-text-wrapper">
@@ -57,17 +53,14 @@ class GreatingPage extends Component {
         );
     }
 }
-
 const mapStateToProps = state => {
     return {
         randomImgGreetingPage: state.getListImg,
     };
 };
-
 const mapDispatchToProps = (dispatch) => bindActionCreators({
     getListImg,
     addTofav
 
 }, dispatch)
-
 export default connect(mapStateToProps, mapDispatchToProps)(GreatingPage);

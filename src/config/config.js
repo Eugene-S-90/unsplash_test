@@ -1,2 +1,3 @@
 export const access_key = "6fdd734a9d83ac19788c7cf0acd56e202e96830317c0ef15f08167ad3658bbdb"
 export const secret_key = "9c145df85494d841eedb539a6fd5af895af4805e0993de6e1d8f3eb516b1b9e8"
+export const mlabApi_key = "h0wNitZSLer0T8vVl1QwY-NOERfUSoXw"

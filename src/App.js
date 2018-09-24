@@ -4,9 +4,7 @@ import FavoritesImg from "./component/favoritesImgs/favoritesImgs"
 import GreatingPage from "./component/greeting-page/GreatingPage"
 
 import {
-    BrowserRouter as Router,
     Route,
-    Switch,
 } from 'react-router-dom'
 import Header from "./layouts/header/Header"
 

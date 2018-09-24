@@ -47,3 +47,39 @@
     font-weight: bold;
     font-size: 1.1rem;
 }
+
+@media only screen and (max-width: 768px) {
+    .nav__left-side {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+    }
+    .nav__right-side {
+        display: flex;
+        align-items: inherit;
+        flex-direction: column;
+    }
+    .nav-wrapper {
+        background-color: black;
+        display: flex;
+        height: auto;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .grid-wrapper {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .img-list {
+        padding: 5px;
+    }
+}
+@media only screen and (max-width: 415px) {
+.greeting-text-wrapper {
+    width: 280px;
+}
+}
