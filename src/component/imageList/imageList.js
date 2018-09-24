@@ -24,7 +24,7 @@ class ImgList extends Component {
                     <a href={img.links.html}>
                         <img className="grid__img" src={img.urls.small} alt="Unsplash Image here" />
                     </a>
-                    <p>
+                    <p className="check-box__wrapper">
                         <input onClick={this.props.addTofav} type="checkbox" data-url={img.urls.small} data-link={img.links.html} id={img.id} />
                         <label htmlFor={img.id}>Add to favorites</label>
                     </p>

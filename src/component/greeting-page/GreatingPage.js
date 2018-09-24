@@ -8,8 +8,6 @@ import {
     Link,
 } from 'react-router-dom'
 
-
-
 class GreatingPage extends Component {
     constructor(props) {
         super(props);
@@ -21,30 +19,28 @@ class GreatingPage extends Component {
     }
 
     render() {
-        const { RandomImgGreetingPage } = this.props
-        console.log(RandomImgGreetingPage)
+        const { randomImgGreetingPage } = this.props
+        console.log(randomImgGreetingPage)
+        let imgFromGetListImg = randomImgGreetingPage.imgList[0];
         let imgs;
-        if (RandomImgGreetingPage.imgList.length >= 0) {
-
-            imgs = RandomImgGreetingPage.imgList.map(img =>
-                <li className="greeting-grid-wrapper" key={img.id}>
-                    <a href={img.links.html}>
-                        <img className="greeting-grid__img" src={img.urls.regular} alt="Unsplash Image here" />
+        if (typeof(imgFromGetListImg) != "undefined"){
+                imgs = 
+                <li className="greeting-grid-wrapper" key={imgFromGetListImg.id}>
+                    <a href={imgFromGetListImg.links.html}>
+                        <img className="greeting-grid__img" src={imgFromGetListImg.urls.regular} alt="Unsplash Image here" />
                     </a>
                     <p>
-                        <input onClick={this.props.addTofav} type="checkbox" data-url={img.urls.small} data-link={img.links.html} id={img.id} />
-                        <label htmlFor={img.id}>Add to favorites</label>
+                        <input onClick={this.props.addTofav} type="checkbox" data-url={imgFromGetListImg.urls.small} data-link={imgFromGetListImg.links.html} id={imgFromGetListImg.id} />
+                        <label htmlFor={imgFromGetListImg.id}>Add to favorites</label>
                     </p>
                     <p>
-                        <a href={img.links.html}>See on Unsplash</a>
+                        <a href={imgFromGetListImg.links.html}>See on Unsplash</a>
                     </p>
                 </li>
-            );
-        } else {
-            imgs = <li className='no-imgs'>
-                <h3>No Images match your search.</h3>
-            </li>;
-        }
+        
+    } else {
+        imgs ="Loading..."
+    }
         return (
             <div>
                 <div className="greeting-text-wrapper">
@@ -64,7 +60,7 @@ class GreatingPage extends Component {
 
 const mapStateToProps = state => {
     return {
-        RandomImgGreetingPage: state.getListImg,
+        randomImgGreetingPage: state.getListImg,
     };
 };
 
