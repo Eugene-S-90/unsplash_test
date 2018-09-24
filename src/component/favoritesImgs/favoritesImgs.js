@@ -30,13 +30,7 @@ class FavoritesImgs extends Component {
             imgs ="Loading..."
             console.log('damn')
         }
- 
-     
-   
-
-
-
-  
+        
         return (
             <div>
             <ul  className="img-list">

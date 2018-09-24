@@ -2,8 +2,6 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import { access_key, secret_key } from '../config/config'
 
 export function* createRequest(action) {
-    console.log("ACIONNN",action)
-    console.log('sagas');
     let count = action.payload
     try {
         yield put({ type: "GET_LIST_IMG_BEGIN" });

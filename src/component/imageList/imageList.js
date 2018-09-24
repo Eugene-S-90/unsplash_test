@@ -5,7 +5,6 @@ import { getListImg } from '../../actions/action_getListImg'
 import { addTofav } from '../../actions/action_addToFav'
 import './ImageList.less'
 
-
 class ImgList extends Component {
     constructor(props) {
         super(props);

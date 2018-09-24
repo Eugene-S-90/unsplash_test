@@ -8,17 +8,17 @@ export function* createRequest(action) {
         let checkIfExistInArray = favorites.some(function (element, index) {
             return element.id == action.payload.id
         })
-        if(checkIfExistInArray) {
+        if (checkIfExistInArray) {
             let filteredItem = favorites.filter(function (item) {
                 return item.id == action.payload.id;
             })
             let filteredItemMLabId = filteredItem[0]._id.$oid
-            const deleteItem = yield call(fetch, `https://api.mlab.com/api/1/databases/unsplash_api/collections/unsplash_favorites/${filteredItemMLabId}/?apiKey=${mlabApi_key}`, {
+            yield call(fetch, `https://api.mlab.com/api/1/databases/unsplash_api/collections/unsplash_favorites/${filteredItemMLabId}/?apiKey=${mlabApi_key}`, {
                 method: 'delete',
                 async: true,
             });
         } else {
-            const postRequest = yield call(fetch, `https://api.mlab.com/api/1/databases/unsplash_api/collections/unsplash_favorites?apiKey=${mlabApi_key}`, {
+            yield call(fetch, `https://api.mlab.com/api/1/databases/unsplash_api/collections/unsplash_favorites?apiKey=${mlabApi_key}`, {
                 method: 'post',
                 headers: {
                     "Content-type": "application/json"

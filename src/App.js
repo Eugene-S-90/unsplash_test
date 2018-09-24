@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import ImageList from "./component/imageList/imageList"
 import FavoritesImg from "./component/favoritesImgs/favoritesImgs"
 import GreatingPage from "./component/greeting-page/GreatingPage"
-
-import {
-    Route,
-} from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import Header from "./layouts/header/Header"
 
 class App extends Component {
