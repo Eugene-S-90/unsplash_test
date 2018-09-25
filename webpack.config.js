@@ -5,6 +5,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const path = require('path');
 
 module.exports = {
+  devtool: 'source-map',
   entry: [
     './src/index.js'
   ],
@@ -40,7 +41,8 @@ module.exports = {
       { 
         test: /\.less$/,
         use: [
-            'style-loader',
+          MiniCssExtractPlugin.loader,
+            // 'style-loader',
             'css-loader', 
             'less-loader'
         ],
