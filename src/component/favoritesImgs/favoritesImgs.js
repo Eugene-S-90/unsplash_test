@@ -6,7 +6,6 @@ import { deleteAllFavsImg } from '../../actions/action_deleteAllFavs'
 import '../imageList/ImageList.less'
 import './favorites.less'
 
-
 class FavoritesImgs extends Component {
     constructor(props) {
         super(props);
@@ -35,9 +34,7 @@ class FavoritesImgs extends Component {
                 );
         } else {
             imgs ="Loading..."
-            console.log('damn')
         }
-        
         return (
             <div>
                 <div className="delete-wrapper"><a className="delete__btn" onClick={this.deleteAndUpdate}>CLEAR ALL FAVORITES</a></div>

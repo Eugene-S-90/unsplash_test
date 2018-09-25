@@ -8,14 +8,12 @@ import Header from "./layouts/header/Header"
 class App extends Component {
     render() {
         return (
-            <Router>
                 <div>
                     <Header />
                     <Route exact path="/" component={GreatingPage} />
                     <Route exact path="/dashboard/photos" component={ImageList} />
                     <Route exact path="/dashboard/photos/favorites" component={FavoritesImg} />
                 </div>
-            </Router>
         )
     }
 }

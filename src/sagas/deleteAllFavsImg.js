@@ -1,6 +1,5 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { mlabApi_key } from '../config/config'
-import { deleteAllFavsImg } from '../actions/action_deleteAllFavs';
 
 export function* createRequest(action) {
     try {
